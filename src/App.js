@@ -58,6 +58,10 @@ const App = () => {
   };
 
   return (
+     <div>
+     <div className='img-container' >
+          <img src={logo} alt='Prueba'></img> 
+      </div>
     <div className="container">
       <h1 className="text-center my-4">Lista de Tareas</h1>
       <TaskForm addTask={addTask} />
@@ -76,6 +80,7 @@ const App = () => {
         selectedTasks={selectedTasks} 
       />
     </div>
+ </div>
   );
 };
 
