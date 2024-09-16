@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
-}
+/* General */
+/*body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+}*/
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body {
+  background: linear-gradient(135deg, #5c6bc0, #81c784);
+  height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /*display: flex;*/
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+/* Formulario */
+form {
+  margin: 20px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task-list-title {
+  color: #ffffff; /* Cambia este color al que prefieras */
+  font-size: 2.5rem; /* Puedes ajustar el tamaño si lo necesitas */
+  font-weight: bold; /* Para hacerlo más prominente */
+}
+
+
+.input-group {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-control {
+  border-radius: 25px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #5c6bc0;
+  border-color: #5c6bc0;
+  border-radius: 25px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #3f51b5;
+}
+
+/* Lista de Tareas */
+.list-group-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item span {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.list-group-item em {
+  color: #5c6bc0;
+}
+
+.btn-warning {
+  background-color: #ffb74d;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #ffa726;
+}
+
+.btn-danger {
+  background-color: #ef5350;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #e53935;
+}
+
+.btn-success {
+  background-color: #66bb6a;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #43a047;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.5);
 }

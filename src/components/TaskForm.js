@@ -13,19 +13,20 @@ const TaskForm = ({ addTask }) => {
 
   return (
     <form onSubmit={handleSubmit} className="mb-3">
-      <div className="input-group">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Nueva tarea"
-          value={task.title}
-          onChange={(e) => setTask({ ...task, title: e.target.value })}
-        />
-        <button type="submit" className="btn btn-primary">
-          Agregar
-        </button>
-      </div>
-    </form>
+    <div className="input-group shadow-sm">
+      <input
+      type="text"
+      className="form-control"
+      placeholder="Nueva tarea"
+      value={task.title}
+      onChange={(e) => setTask({ ...task, title: e.target.value })}
+    />
+      <button type="submit" className="btn btn-primary">
+        <i className="bi bi-plus-circle"></i> Agregar
+      </button>
+    </div>
+  </form>
+
   );
 };
 
