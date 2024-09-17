@@ -67,11 +67,6 @@ const App = () => {
       <h1 className="text-center my-4 task-list-title">Lista de Tareas</h1>
       <TaskForm addTask={addTask} />
       
-      {selectedTasks.length > 0 && (
-        <button className="btn btn-danger mb-3" onClick={deleteSelectedTasks}>
-          Eliminar Tareas Seleccionadas
-        </button>
-      )}
 
       <TaskList 
         tasks={tasks} 

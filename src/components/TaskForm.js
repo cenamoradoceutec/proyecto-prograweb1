@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { alertaSuccess, alertaError, alertaWarning } from "../Funciones";
+import { alertaSuccess, alertaError, alertaWarning, alertaDelete } from "../Funciones";
 
 const TaskForm = ({ addTask }) => {
   const [task, setTask] = useState({ title: '', status: 'Por hacer' });

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { alertaSuccess } from '../Funciones';
-//import { alertaSuccess, alertaError, alertaWarning } from "../Funciones";
+//import { alertaSuccess } from '../Funciones';
+import Swal from 'sweetalert2';
+import { alertaSuccess, alertaError, alertaWarning, alertaDelete } from "../Funciones";
 
 const TaskItem = ({ task, editTask, deleteTask, handleTaskSelection, isSelected }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -15,11 +16,24 @@ const TaskItem = ({ task, editTask, deleteTask, handleTaskSelection, isSelected 
 
   // Función para manejar la eliminación con confirmación
   const handleDelete = () => {
-    const confirmDelete = window.confirm(`¿Estás seguro de que deseas eliminar la tarea "${task.title}"?`);
-    if (confirmDelete) {
-      deleteTask(task.id);
-      alertaSuccess(`Tarea "${task.title}" eliminada con éxito`); // Alerta después de eliminar la tarea
-    }
+    Swal.fire({
+      title: `¿Estás seguro de que deseas eliminar la tarea "${task.title}"?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteTask(task.id); // Eliminar la tarea
+        Swal.fire(
+          'Eliminada',
+          `Tarea "${task.title}" eliminada con éxito`,
+          'success'
+        );
+      }
+    });
   };
 
   return (
