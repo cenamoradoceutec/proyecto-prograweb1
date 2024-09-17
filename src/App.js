@@ -61,7 +61,7 @@ const App = () => {
   return (
      <div>
      <div className='img-container' >
-          <img src="{logo}" alt='Prueba'></img> 
+          <img src={logo} alt='Prueba'></img> 
       </div>
     <div className="container">
       <h1 className="text-center my-4 task-list-title">Lista de Tareas</h1>
