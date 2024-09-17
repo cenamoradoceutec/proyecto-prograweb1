@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { alertaSuccess, alertaError, alertaWarning, alertaDelete } from "../Funciones";
 
+
+
 const TaskItem = ({ task, editTask, deleteTask, handleTaskSelection, isSelected }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTask, setEditedTask] = useState({ ...task });
@@ -11,7 +13,7 @@ const TaskItem = ({ task, editTask, deleteTask, handleTaskSelection, isSelected 
   const handleEdit = () => {
     editTask(task.id, editedTask);
     setIsEditing(false);
-    alertaSuccess(`Tarea "${editedTask.title}" ha sido editada con éxito`); // Alerta después de editar la tarea
+    alertaSuccess(`Tarea "${editedTask.title}" ha sido editada con éxito`);
   };
 
   // Función para manejar la eliminación con confirmación
@@ -26,7 +28,7 @@ const TaskItem = ({ task, editTask, deleteTask, handleTaskSelection, isSelected 
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteTask(task.id); // Eliminar la tarea
+        deleteTask(task.id);
         Swal.fire(
           'Eliminada',
           `Tarea "${task.title}" eliminada con éxito`,
@@ -34,6 +36,20 @@ const TaskItem = ({ task, editTask, deleteTask, handleTaskSelection, isSelected 
         );
       }
     });
+  };
+
+   // Función para aplicar el estilo en línea según el estado de la tarea
+   const getStatusClass = (status) => {
+    switch (status) {
+      case 'Por hacer':
+        return { color: 'red' };
+      case 'En progreso':
+        return { color: 'orange' };
+      case 'Finalizada':
+        return { color: 'green' };
+      default:
+        return {};
+    }
   };
 
   return (
@@ -56,15 +72,17 @@ const TaskItem = ({ task, editTask, deleteTask, handleTaskSelection, isSelected 
             value={editedTask.status}
             onChange={(e) => setEditedTask({ ...editedTask, status: e.target.value })}
           >
-            <option value="Por hacer">Por hacer</option>
-            <option value="En progreso">En progreso</option>
-            <option value="Finalizada">Finalizada</option>
+            <option value="Por hacer" className='status-pending'>Por hacer</option>
+            <option value="En progreso" className='status-in-progress'>En progreso</option>
+            <option value="Finalizada" className='status-completed'>Finalizada</option>
           </select>
           <button onClick={handleEdit} className="btn btn-success">Guardar</button>
         </>
       ) : (
         <>
-          <span>{task.title} - <em>{task.status}</em></span>
+          <span style={getStatusClass(task.status)}>
+            {task.title} - <em>{task.status}</em>
+          </span>
           <div>
             <button onClick={() => setIsEditing(true)} className="btn btn-warning mx-2">Editar</button>
             <button onClick={handleDelete} className="btn btn-danger">Eliminar</button>
@@ -76,3 +94,4 @@ const TaskItem = ({ task, editTask, deleteTask, handleTaskSelection, isSelected 
 };
 
 export default TaskItem;
+

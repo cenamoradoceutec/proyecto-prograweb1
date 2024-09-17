@@ -150,3 +150,15 @@ input[type="checkbox"] {
   text-align: center; /* Opcional: centra el título */
   margin-bottom: 20px; /* Añade espacio inferior */
 }
+
+.status-pending {
+  color: red; /* Color para "Por hacer" */
+}
+
+.status-in-progress {
+  color: orange; /* Color para "En progreso" */
+}
+
+.status-completed {
+  color: green; /* Color para "Finalizada" */
+}
