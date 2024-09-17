@@ -64,7 +64,7 @@ const App = () => {
           <img src="{logo}" alt='Prueba'></img> 
       </div>
     <div className="container">
-      <h1 className="text-center my-4">Lista de Tarea</h1>
+      <h1 className="text-center my-4 task-list-title">Lista de Tareas</h1>
       <TaskForm addTask={addTask} />
       
       {selectedTasks.length > 0 && (
