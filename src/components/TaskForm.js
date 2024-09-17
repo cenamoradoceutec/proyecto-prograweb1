@@ -29,7 +29,7 @@ const TaskForm = ({ addTask }) => {
       <div className="input-group">
         <input
           type="text"
-          className="form-control"
+          className="form-control mx-2"
           placeholder="Nueva tarea"
           value={task.title}
           onChange={(e) => setTask({ ...task, title: e.target.value })}
